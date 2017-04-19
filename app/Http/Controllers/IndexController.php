@@ -22,9 +22,10 @@ class IndexController extends Controller
     public function auth( Request $request )
     {
         $callback = $request->input( 'redirect_url' );
-        $state = base64_encode( $callback );
+        $state = urlencode( base64_encode( $callback ) );
         $notifyUrl = sprintf( 'http://%s/notify', $_SERVER['HTTP_HOST'] );
         $authUrl = sprintf( "https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=snsapi_userinfo&state=%s#wechat_redirect", env( 'WX_APPID' ), urlencode( $notifyUrl ), $state );
+        var_dump( $authUrl );die;
         return redirect( $authUrl );
     }
 
@@ -35,7 +36,7 @@ class IndexController extends Controller
     {
         $state = $request->input( 'state' );
         $code = $request->input( 'code' );
-        $callback = urldecode( base64_decode( $state ) );
+        $callback = urldecode( base64_decode( urldecode( $state ) ) );
         if ( strpos( $callback, '?' ) !== false )
             $callback .= sprintf( '&code=%s', $code );
         else
