@@ -35,12 +35,12 @@ class IndexController extends Controller
     {
         $state = $request->input( 'state' );
         $code = $request->input( 'code' );
-        var_dump( $state, $code );die;
-        $callback = urldecode( base64_decode( urldecode( $state ) ) );
+        $callback = urldecode( base64_decode( $state ) );
         if ( strpos( $callback, '?' ) !== false )
             $callback .= sprintf( '&code=%s', $code );
         else
             $callback .= sprintf( '?code=%s', $code );
+        var_dump( $state, $code, $callback );die;
         return redirect( $callback );
     }
 }
