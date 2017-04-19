@@ -40,7 +40,6 @@ class IndexController extends Controller
             $callback .= sprintf( '&code=%s', $code );
         else
             $callback .= sprintf( '?code=%s', $code );
-        var_dump( $state, $code, $callback );die;
         return redirect( $callback );
     }
 }
