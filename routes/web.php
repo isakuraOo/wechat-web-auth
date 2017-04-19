@@ -12,7 +12,7 @@
 */
 
 $app->get('/', function () use ($app) {
-    return 'Welcome to wechat auth system!' . urlencode( 'http://www.baidu.com' );
+    return 'Welcome to wechat auth system!';
 });
 
 $app->group( ['middleware' => App\Http\Middleware\SignMiddleware::class], function() use ( $app ) {
