@@ -35,7 +35,7 @@ class IndexController extends Controller
     {
         $state = $request->input( 'state' );
         $code = $request->input( 'code' );
-        $callback = base64_decode( $state );
+        $callback = urldecode( base64_decode( $state ) );
         if ( strpos( $callback, '?' ) !== false )
             $callback .= sprintf( '&code=%s', $code );
         else
