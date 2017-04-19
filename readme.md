@@ -1,21 +1,12 @@
-# Lumen PHP Framework
+# 微信网页授权中心
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+「微信网页授权中心」（后统一称本系统）是一个授权分发中心系统。受限于目前微信服务号的网页授权域名只能绑定一个，当你只有一个认证服务号却有多个域名下的系统希望可以获得微信网页授权时；或者是你没有认证服务号，但是你的基友有。或许你可以考虑一下使用我的授权中心。
 
-## Official Documentation
+## 实现说明
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
+本系统是基于优雅且高效的 Lumen 框架实现的。通过 系统存储的白名单数据 + 访问签名验证 的方式对允许的外部系统向本系统发起授权申请。微信授权成功后拿到的 code 数据从 redirect_url 回调地址返回给外部系统，外部系统再通过 code 去进行授权后的业务操作「目前需要外部系统与本系统使用相同的 AppID & secret」
 
-## Security Vulnerabilities
+## 开发配置说明
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Coding...
