@@ -17,11 +17,12 @@
 接入授权中心，首先你需要在授权中心的白名单中。在向授权中心发起授权申请的时候，你需要提供以下几个参数
 `system`,`timestamp`,`nonce`,`signature`,`redirect_url`
 他们分别是
-`system`: 系统标识「与授权中心白名单存储数据一致」
-`timestamp`: 时间戳
-`nonce`: 随机字符串
-`signature`: 签名密文「加密规则见下文」
-`redirect_url`: 授权成功后的回调地址
+
+- `system`: 系统标识「与授权中心白名单存储数据一致」
+- `timestamp`: 时间戳
+- `nonce`: 随机字符串
+- `signature`: 签名密文「加密规则见下文」
+- `redirect_url`: 授权成功后的回调地址
 
 授权成功后，授权中心将在 `redirect_url` 的后面带上微信回调中拿到的 `code` 参数。你可以使用 `code` 去向微信索要用户的 `access_token` 访问令牌「这里可能需要你拥有与授权中心使用服务号一致的 `AppId`,`secret` 两个参数」
 
