@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Services\WxApiService;
 
-class WxAuthProvider extends ServiceProvider
+class WxApiProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -32,7 +32,7 @@ class WxAuthProvider extends ServiceProvider
             'encodingaeskey'=> env( 'WX_ENCODINGAESKEY' ),
         ];
         //使用singleton绑定单例
-        $this->app->singleton('wxAuth',function() use ( $config ) {
+        $this->app->singleton('wxApi',function() use ( $config ) {
             return new WxApiService( $config );
         });
 
