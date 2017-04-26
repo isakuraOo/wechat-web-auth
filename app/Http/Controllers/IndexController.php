@@ -123,10 +123,10 @@ class IndexController extends Controller
         if ( empty( $info ) )
         {
             $attributes['create_time'] = time();
-            $res = DB::table( 'wx_user_info' )->insert( $data );
+            $res = DB::table( 'wx_user_info' )->insert( $attributes );
         }
         else
-            $res = DB::table( 'wx_user_info' )->update( $data );
+            $res = DB::table( 'wx_user_info' )->update( $attributes );
         return $res;
     }
 
