@@ -52,7 +52,7 @@ class IndexController extends Controller
         if ( $userinfoRes === false )
             return redirect( $this->buildUrl( $callback, ['msg' => 'Faild! Save wx user info!'] ) );
 
-        $accessToken = $this->generateAccessToken();
+        $accessToken = $this->generateAccessToken( $userinfo['openid'] );
         if ( $accessToken === false )
             return redirect( $this->buildUrl( $callback, ['msg' => 'Faild! Generate access token'] ) );
 
