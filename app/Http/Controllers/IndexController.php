@@ -76,7 +76,7 @@ class IndexController extends Controller
         if ( empty( $userinfo ) )
             return response()->json( ['errcode' => 1, 'msg' => 'Not exist user info!'] );
         else
-            return response()->json( ['errcode' => 1, 'msg' => 'Successfully!', 'data' => get_object_vars( $userinfo )] );
+            return response()->json( ['errcode' => 0, 'msg' => 'Successfully!', 'data' => get_object_vars( $userinfo )] );
     }
 
     /**
