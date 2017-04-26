@@ -97,6 +97,7 @@ class IndexController extends Controller
      * 保存微信用户数据
      * @param  array $data 从微信接口获取的用户基本信息数组
      * $data = [
+     *     'openid' => 'OpenID'
      *     'nickname' => '昵称',
      *     'sex' => 0,
      *     'province' => '广东省',
@@ -108,9 +109,25 @@ class IndexController extends Controller
      */
     private function saveUserinfo( $data )
     {
-        $data['create_time'] = time();
-        $data['update_time'] = time();
-        return DB::table( 'wx_user_info' )->insert( $data );
+        $attributes = [
+            'openid'        => $data['openid'],
+            'nickname'      => $data['nickname'],
+            'sex'           => $data['sex'],
+            'province'      => $data['province'],
+            'city'          => $data['city'],
+            'country'       => $data['country'],
+            'headimgurl'    => $data['headimgurl'],
+            'update_time'   => time(),
+        ];
+        $info = DB::table( 'wx_user_info' )->where( 'openid', $data['openid'] )->first();
+        if ( empty( $info ) )
+        {
+            $attributes['create_time'] = time();
+            $res = DB::table( 'wx_user_info' )->insert( $data );
+        }
+        else
+            $res = DB::table( 'wx_user_info' )->update( $data );
+        return $res;
     }
 
     /**
