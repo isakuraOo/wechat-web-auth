@@ -41,7 +41,6 @@ class IndexController extends Controller
     {
         $state = $request->input( 'state' );
         $callback = Cache::get( $state );
-        var_dump( $state, $callback );die;
 
         $oauthRes = $this->wxApi->getOauthAccessToken();
         if ( $oauthRes === false )
