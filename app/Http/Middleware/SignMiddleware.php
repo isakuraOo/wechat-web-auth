@@ -19,7 +19,7 @@ class SignMiddleware
     {
         $data = $request->only( ['system', 'nonce', 'timestamp', 'signature'] );
         if ( !$this->sign( $data ) )
-            return response()->json( ['errcode' => 1, 'Invalid sign!'] );
+            return response()->json( ['errcode' => 1, 'msg' => 'Invalid sign!'] );
         return $next( $request );
     }
 
