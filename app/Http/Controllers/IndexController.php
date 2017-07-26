@@ -112,7 +112,6 @@ class IndexController extends Controller
     private function saveUserinfo( $data )
     {
         $attributes = [
-            'openid'        => $data['openid'],
             'nickname'      => $data['nickname'],
             'sex'           => $data['sex'],
             'province'      => $data['province'],
@@ -124,6 +123,7 @@ class IndexController extends Controller
         $info = DB::table( 'wx_user_info' )->where( 'openid', $data['openid'] )->first();
         if ( empty( $info ) )
         {
+            $attributes['openid'] = $data['openid'];
             $attributes['create_time'] = time();
             $res = DB::table( 'wx_user_info' )->insert( $attributes );
         }
