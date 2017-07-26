@@ -26,7 +26,7 @@ class IndexController extends Controller
     {
         $callback = $request->input( 'redirect_url' );
         $system = $request->input( 'system' );
-        $state = md5( $system . time() );
+        $state = md5( $system . time() . rand( 100, 999 ) );
         Cache::add( $state, urldecode( $callback ), 1 );
         
         $notifyUrl = sprintf( 'http://%s/notify', $_SERVER['HTTP_HOST'] );
@@ -128,7 +128,7 @@ class IndexController extends Controller
             $res = DB::table( 'wx_user_info' )->insert( $attributes );
         }
         else
-            $res = DB::table( 'wx_user_info' )->update( $attributes );
+            $res = DB::table( 'wx_user_info' )->where( ['openid', $data['openid']] )->update( $attributes );
         return $res;
     }
 
