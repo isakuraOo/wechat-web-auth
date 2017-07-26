@@ -128,7 +128,7 @@ class IndexController extends Controller
             $res = DB::table( 'wx_user_info' )->insert( $attributes );
         }
         else
-            $res = DB::table( 'wx_user_info' )->where( ['openid', $data['openid']] )->update( $attributes );
+            $res = DB::table( 'wx_user_info' )->where( 'openid', $data['openid'] )->update( $attributes );
         return $res;
     }
 
