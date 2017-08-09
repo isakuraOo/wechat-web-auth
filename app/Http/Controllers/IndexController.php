@@ -72,7 +72,7 @@ class IndexController extends Controller
             return response()->json( ['errcode' => 1, 'msg' => 'Invalid access token!'] );
 
         $userinfo = DB::table( 'wx_user_info' )
-            ->select( 'openid', 'nickname', 'sex', 'province', 'city', 'country', 'headimgurl' )
+            ->select( 'openid', 'unionid', 'nickname', 'sex', 'province', 'city', 'country', 'headimgurl' )
             ->where( 'openid', $tokenInfo->openid )
             ->first();
         if ( empty( $userinfo ) )
