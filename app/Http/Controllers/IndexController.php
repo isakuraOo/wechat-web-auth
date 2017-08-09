@@ -120,6 +120,8 @@ class IndexController extends Controller
             'headimgurl'    => $data['headimgurl'],
             'update_time'   => time(),
         ];
+        if ( isset( $data['unionid'] ) )
+            $attributes['unionid'] = $data['unionid'];
         $info = DB::table( 'wx_user_info' )->where( 'openid', $data['openid'] )->first();
         if ( empty( $info ) )
         {
