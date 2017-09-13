@@ -41,4 +41,4 @@
 
 ## 联系
 
-Email: isakura0rz@gmail.com
+Email: i@joosie.cn
