@@ -19,7 +19,7 @@ $app->group( ['middleware' => App\Http\Middleware\SignMiddleware::class], functi
     // 验证入口
     $app->get( '/auth', 'IndexController@auth' );
     // 获取用户授权数据
-    $app->post( '/userinfo', 'IndexController@userinfo' );
+    $app->get( '/userinfo', 'IndexController@userinfo' );
 } );
 
 // 微信授权回调
