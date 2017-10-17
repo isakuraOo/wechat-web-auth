@@ -42,12 +42,12 @@ php artisan whitelist:make remove you_system_name
 获取用户授权数据的接口地址为 https://wxauth.example.com/userinfo
 
 你需要用 `GET` 的方式去调用对应的接口，接口需要进行签名验证，除签名必要参数以外你还需要提供刚拿到的 `access_token` 访问令牌。签名通过且令牌有效的情况下你可以得到用户的授权数据信息。  
-这里对返回数据做了筛选，授权中心默认仅返回 `openid`, `unionid`,`nickname`,`sex`,`province`,`city`,`country`,`headimgurl` 的数据
+这里对返回数据做了筛选，授权中心默认仅返回 `openid`,`unionid`,`nickname`,`sex`,`province`,`city`,`country`,`headimgurl` 的数据
 
 ## 签名加密
 
-签名需要用到 `system`,`token`,`timestamp`,`nonce` 四个参数，其中 `token` 需要与授权中心白名单中的设置的 `token` 一致。
-对四个参数进行字典序排序后组合成字符串，然后对字符串进行 `sha1` 加密生成 `signature`
+签名需要用到 `system`,`token`,`timestamp`,`nonce` 四个参数，其中 `token` 为系统新增白名单用户时生成的授权码。
+对四个参数进行字典序排序后以 URL-encode 的格式拼接成字符串（PHP 里面可以使用 `http_build_query` 函数），然后对字符串进行 `sha1` 加密生成 `signature`
 
 ## 联系
 
