@@ -12,15 +12,15 @@
 
 首先跟正常 [Lumen](https://lumen.laravel-china.org) 代码处理一样，你需要先 `composer update` 将框架的核心文件准备好。  
 接着你需要将 `.env.example` 文件拷贝一份到 `.env` 根据你的环境情况配置一下里面的内容。  
-在 `/database/` 下有 `wx_auth.sql` 数据库文件，你可以利用它创建数据库。  
 
-添加授权白名单：  
-系统提供了 `artisan` 自定义命令 `whitelist:make`  
-命令提供创建跟移除白名单的操作，分别是  
-```
-php artisan whitelist:make create you_system_name
-php artisan whitelist:make remove you_system_name
-```  
+系统提供了 `artisan` 自定义命令 `whitelist:make` 和 `system:install`  
+
+数据库准备：  
+安装 `php artisan system:install`  
+
+管理授权白名单：  
+创建白名单用户 `php artisan whitelist:make create you_system_name`  
+移除白名单用户 `php artisan whitelist:make remove you_system_name`  
 ***创建白名单用户成功后，你需要将生成的白名单授权码保存下来，在发起授权的时候需要被用于签名***  
 
 ## 发起授权
