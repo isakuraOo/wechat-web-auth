@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\HandleWhiteList::class,
+        \App\Console\Commands\HandleInstall::class,
     ];
 
     /**
