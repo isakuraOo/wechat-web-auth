@@ -16,11 +16,20 @@
 系统提供了 `artisan` 自定义命令 `whitelist:make` 和 `system:install`  
 
 数据库准备：  
-安装 `php artisan system:install`  
+安装  
+```
+php artisan system:install
+``` 
 
 管理授权白名单：  
-创建白名单用户 `php artisan whitelist:make create you_system_name`  
-移除白名单用户 `php artisan whitelist:make remove you_system_name`  
+创建白名单用户  
+```
+php artisan whitelist:make create you_system_name
+```  
+移除白名单用户  
+```
+php artisan whitelist:make remove you_system_name
+```  
 ***创建白名单用户成功后，你需要将生成的白名单授权码保存下来，在发起授权的时候需要被用于签名***  
 
 ## 发起授权
